@@ -61,31 +61,31 @@ public class DFAGenerator {
 
 
         //再消除死状态
-        for(int i=0; i<minNFAList.size(); i++){
-
-            DFAState ds = minNFAList.get(i);
-            boolean shouldRemove = true;
-
-            for(Character c: allChars){
-                if(ds.getEdgeOfMove(c)==null){
-                    shouldRemove=false;
-                    break;
-                }
-                else if(ds.getEdgeOfMove(c).equals(ds)){
-                    continue;
-                }
-                else {
-                    shouldRemove = false;
-                    break;
-                }
-            }
-
-            if(shouldRemove){
-                minNFAList.remove(i);
-                System.out.println("delete a dead state of id:" + i);
-                break;
-            }
-        }
+//        for(int i=0; i<minNFAList.size(); i++){
+//
+//            DFAState ds = minNFAList.get(i);
+//            boolean shouldRemove = true;
+//
+//            for(Character c: allChars){
+//                if(ds.getEdgeOfMove(c)==null){
+//                    shouldRemove=false;
+//                    break;
+//                }
+//                else if(ds.getEdgeOfMove(c).equals(ds)){
+//                    continue;
+//                }
+//                else {
+//                    shouldRemove = false;
+//                    break;
+//                }
+//            }
+//
+//            if(shouldRemove){
+//                minNFAList.remove(i);
+//                System.out.println("delete a dead state of id:" + i);
+//                break;
+//            }
+//        }
 
         //test output
         System.out.println("-----------------");

@@ -13,8 +13,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException{
 
-        String[] tokenPatterns = {"firstPattern","secondPattern"};
-        String[] regex = {"d&s|b&c*", "c&d&s"};
+        String[] tokenPatterns = {"id","splite","number",""};
+        String[] regex = {"(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z)&((0|1|2|3|4|5|6|7|8|9)|(a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|A|B|C|D|E|F|G|H|I|J|K|L|M|N|O|P|Q|R|S|T|U|V|W|X|Y|Z)|_)*"
+                            ,";",  "(0|1|2|3|4|5|6|7|8|9)&(0|1|2|3|4|5|6|7|8|9)"};
 
         NFAGenerator nfaGenerator = new NFAGenerator();
         NFA nfa =  nfaGenerator.getNFA(regex);
@@ -33,7 +34,7 @@ public class Main {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8"));
 
         String tokenPatternsString = "{";
-        for(String s: regex){
+        for(String s: tokenPatterns){
             tokenPatternsString = tokenPatternsString + "\"" + s + "\",";
         }
         tokenPatternsString = tokenPatternsString.substring(0, tokenPatternsString.length()-1) + "}";
